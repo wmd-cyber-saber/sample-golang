@@ -36,7 +36,7 @@ func logRequest(r *http.Request) {
 func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		logRequest(r)
-		fmt.Fprintf(w, "Hello! you've requested %s\n", r.URL.Path)
+		fmt.Fprintf(w, "Howdy! you've requested %s\n", r.URL.Path)
 	})
 
 	http.HandleFunc("/cached", func(w http.ResponseWriter, r *http.Request) {
@@ -104,7 +104,7 @@ func main() {
 
 	port := os.Getenv("PORT")
 	if port == "" {
-		port = "80"
+		port = "8080"
 	}
 
 	for _, encodedRoute := range strings.Split(os.Getenv("ROUTES"), ",") {
